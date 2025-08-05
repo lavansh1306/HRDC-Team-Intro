@@ -8,35 +8,56 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* HackerRank Brand Colors */
+    --hackerrank-green: 145 77% 49%;
+    --deep-charcoal: 200 27% 13%;
+    --light-background: 0 0% 96%;
+    --pure-white: 0 0% 100%;
+    
+    /* Base Theme Colors */
+    --background: 0 0% 96%;
+    --foreground: 200 27% 13%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 200 27% 13%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 200 27% 13%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 145 77% 49%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 200 27% 13%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 200 15% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 145 77% 49%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 0 0% 89%;
+    --input: 0 0% 89%;
+    --ring: 145 77% 49%;
 
-    --radius: 0.5rem;
+    /* Design System Enhancements */
+    --radius: 0.75rem;
+    
+    /* Custom Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--hackerrank-green)) 0%, hsl(var(--deep-charcoal)) 100%);
+    --gradient-mesh: linear-gradient(45deg, hsl(var(--hackerrank-green) / 0.1), hsl(var(--deep-charcoal) / 0.05));
+    
+    /* Shadows */
+    --shadow-card: 0 4px 16px -4px hsl(var(--deep-charcoal) / 0.1);
+    --shadow-hover: 0 8px 25px -5px hsl(var(--hackerrank-green) / 0.3);
+    --shadow-glow: 0 0 40px hsl(var(--hackerrank-green) / 0.15);
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
     --sidebar-background: 0 0% 98%;
 
@@ -100,6 +121,139 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-inter;
+  }
+}
+
+@layer components {
+  /* Hero Section Styles */
+  .hero-gradient {
+    background: var(--gradient-hero);
+  }
+  
+  .hero-mesh {
+    background: var(--gradient-mesh);
+    animation: mesh-flow 8s ease-in-out infinite;
+  }
+  
+  /* Team Card Styles */
+  .team-card {
+    @apply bg-card border border-border rounded-xl shadow-[var(--shadow-card)] transition-[var(--transition-smooth)];
+    backdrop-filter: blur(10px);
+  }
+  
+  .team-card:hover {
+    @apply border-primary shadow-[var(--shadow-hover)] scale-105;
+  }
+  
+  .team-card-glow {
+    box-shadow: 
+      inset 0 1px 0 0 hsl(var(--pure-white) / 0.1),
+      var(--shadow-card);
+  }
+  
+  .team-card:hover .team-card-glow {
+    box-shadow: 
+      inset 0 1px 0 0 hsl(var(--pure-white) / 0.2),
+      var(--shadow-hover),
+      var(--shadow-glow);
+  }
+  
+  /* Button Styles */
+  .btn-connect {
+    @apply bg-primary text-primary-foreground px-6 py-2 rounded-lg font-medium transition-[var(--transition-bounce)] opacity-0 translate-y-2;
+  }
+  
+  .team-card:hover .btn-connect {
+    @apply opacity-100 translate-y-0;
+  }
+  
+  .btn-connect:active {
+    @apply scale-95;
+    box-shadow: var(--shadow-glow);
+  }
+  
+  /* Carousel Styles */
+  .carousel-container {
+    @apply relative overflow-hidden;
+  }
+  
+  .carousel-track {
+    @apply flex gap-6 transition-transform duration-500 ease-in-out;
+  }
+  
+  /* Scroll Indicators */
+  .scroll-indicator {
+    @apply absolute top-1/2 -translate-y-1/2 bg-card border border-border rounded-full p-3 shadow-[var(--shadow-card)] transition-[var(--transition-smooth)] hover:shadow-[var(--shadow-hover)] hover:border-primary;
+  }
+}
+
+@layer utilities {
+  /* Animation Keyframes */
+  @keyframes mesh-flow {
+    0%, 100% { 
+      transform: translateX(0) translateY(0) rotate(0deg); 
+    }
+    25% { 
+      transform: translateX(5px) translateY(-5px) rotate(1deg); 
+    }
+    50% { 
+      transform: translateX(-3px) translateY(3px) rotate(-0.5deg); 
+    }
+    75% { 
+      transform: translateX(2px) translateY(-2px) rotate(0.5deg); 
+    }
+  }
+  
+  @keyframes slide-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes fade-in-scale {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  /* Font Family Utilities */
+  .font-montserrat {
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  .font-inter {
+    font-family: 'Inter', sans-serif;
+  }
+  
+  /* Animation Classes */
+  .animate-slide-in-up {
+    animation: slide-in-up 0.6s ease-out;
+  }
+  
+  .animate-fade-in-scale {
+    animation: fade-in-scale 0.5s ease-out;
+  }
+  
+  .animate-delay-100 {
+    animation-delay: 0.1s;
+  }
+  
+  .animate-delay-200 {
+    animation-delay: 0.2s;
+  }
+  
+  .animate-delay-300 {
+    animation-delay: 0.3s;
   }
 }
