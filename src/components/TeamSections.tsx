@@ -20,18 +20,7 @@ const creativeSquad = [
     name: "Jordan Blake",
     role: "Creative Director"
   },
-  {
-    id: 3,
-    image: teamLead1,
-    name: "Sophia Martinez",
-    role: "Brand Designer"
-  },
-  {
-    id: 4,
-    image: creative1,
-    name: "Riley Chen",
-    role: "Motion Designer"
-  }
+
 ];
 
 const technicalNinjas = [
@@ -47,18 +36,7 @@ const technicalNinjas = [
     name: "Elena Rodriguez",
     role: "Platform Engineer"
   },
-  {
-    id: 3,
-    image: tech1,
-    name: "Kai Nakamura",
-    role: "DevOps Specialist"
-  },
-  {
-    id: 4,
-    image: teamLead2,
-    name: "Zara Ahmed",
-    role: "Backend Architect"
-  }
+
 ];
 
 const corporateGurus = [
@@ -74,18 +52,7 @@ const corporateGurus = [
     name: "Priya Sharma",
     role: "Business Development"
   },
-  {
-    id: 3,
-    image: corporate1,
-    name: "James Wilson",
-    role: "Operations Manager"
-  },
-  {
-    id: 4,
-    image: teamLead3,
-    name: "Aisha Okonkwo",
-    role: "Partnership Lead"
-  }
+
 ];
 
 const TeamSections = () => {
@@ -133,19 +100,19 @@ const TeamSections = () => {
         {/* Team Carousels */}
         <div className="space-y-16">
           <TeamCarousel
-            title="Creative Squad"
+            title="Creative Lead's"
             members={creativeSquad}
             isVisible={isVisible}
           />
           
           <TeamCarousel
-            title="Technical Ninjas"
+            title="Technical Lead's"
             members={technicalNinjas}
             isVisible={isVisible}
           />
           
           <TeamCarousel
-            title="Corporate Gurus"
+            title="Corporate Lead's"
             members={corporateGurus}
             isVisible={isVisible}
           />
