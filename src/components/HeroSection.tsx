@@ -36,9 +36,8 @@ const HeroSection = () => {
             HackerRank
           </span>
           <br />
-          <br>
         Developer's  Community
-            </br>
+            
         </h1>
         
         <p className={`font-inter text-xl md:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed transition-all duration-1000 delay-300 ${
