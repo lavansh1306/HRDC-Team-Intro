@@ -9,25 +9,25 @@ const coreTeamMembers = [
   {
     id: 1,
     image: teamLead1,
-    name: "Sarah Chen",
+    name: "Arnav Puggal",
     role: "Community Lead"
   },
   {
     id: 2,
     image: teamLead2,
-    name: "Alex Rodriguez",
+    name: "Abhiraj Ghosh",
     role: "Technical Director"
   },
   {
     id: 3,
     image: teamLead3,
-    name: "David Kim",
+    name: "Yashi",
     role: "Platform Architect"
   },
   {
     id: 4,
     image: teamLead4,
-    name: "Maya Patel",
+    name: "Tanvi",
     role: "Developer Experience"
   }
 ];
@@ -66,7 +66,7 @@ const CoreTeamGrid = () => {
         }`}>
           <h2 className="font-montserrat text-4xl md:text-5xl font-bold text-foreground mb-6">
             Meet Our{" "}
-            <span className="text-primary">Core Team</span>
+            <span className="text-primary">Founder's</span>
           </h2>
           <p className="font-inter text-lg text-muted-foreground max-w-2xl mx-auto">
             The passionate individuals leading our mission to connect and empower 
