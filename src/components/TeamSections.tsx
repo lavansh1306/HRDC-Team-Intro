@@ -88,8 +88,8 @@ const TeamSections = () => {
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}>
           <h2 className="font-montserrat text-4xl md:text-5xl font-bold text-foreground mb-6">
-            Our Amazing{" "}
-            <span className="text-primary">Teams</span>
+            Meet our{" "}
+            <span className="text-primary">Core Teams</span>
           </h2>
           <p className="font-inter text-lg text-muted-foreground max-w-3xl mx-auto">
             Each team brings unique expertise and passion to create the best developer 
